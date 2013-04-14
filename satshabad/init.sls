@@ -57,6 +57,15 @@ wget -N -P {{ pillar['satshabad']['home'] }}/.vim/colors/ https://raw.github.com
     - require:
       - git: git://github.com/tpope/vim-pathogen.git
 
+git://github.com/terryma/vim-multiple-cursors.git:
+  git.latest:
+    - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-snipmate
+    - require:
+      - pkg: pkgs
+      - git: git://github.com/tpope/vim-pathogen.git
+
+
+
 git clone http://github.com/sjl/gundo.vim.git ~/.vim/bundle/gundo
   git.latest:
     - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-snipmate
