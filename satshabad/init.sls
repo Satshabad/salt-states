@@ -57,7 +57,21 @@ wget -N -P {{ pillar['satshabad']['home'] }}/.vim/colors/ https://raw.github.com
     - require:
       - git: git://github.com/tpope/vim-pathogen.git
 
+wget -N -P {{ pillar['satshabad']['home'] }}/.vim/plugin/ https://raw.github.com/vim-scripts/YankRing.vim/master/plugin/yankring.vim:
+  cmd:
+    - run
+    - require:
+      - git: git://github.com/tpope/vim-pathogen.git
+
+
 git://github.com/terryma/vim-multiple-cursors.git:
+  git.latest:
+    - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-snipmate
+    - require:
+      - pkg: pkgs
+      - git: git://github.com/tpope/vim-pathogen.git
+
+git://github.com/terryma/vim-expand-region.git:
   git.latest:
     - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-snipmate
     - require:
@@ -90,13 +104,6 @@ git://github.com/tomtom/tlib_vim.git:
 git://github.com/MarcWeber/vim-addon-mw-utils.git:
   git.latest:
     - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-addon-mw-utils
-    - require:
-      - pkg: pkgs
-      - git: git://github.com/tpope/vim-pathogen.git
-
-git://github.com/Lokaltog/vim-easymotion.git:
-  git.latest:
-    - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-easymotion
     - require:
       - pkg: pkgs
       - git: git://github.com/tpope/vim-pathogen.git
