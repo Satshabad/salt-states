@@ -63,6 +63,14 @@ wget -N -P {{ pillar['satshabad']['home'] }}/.vim/plugin/ https://raw.github.com
     - require:
       - git: git://github.com/tpope/vim-pathogen.git
 
+git://github.com/kien/ctrlp.vim.git:
+  git.latest:
+    - target: {{ pillar['satshabad']['home'] }}/.vim/bundle/vim-snipmate
+    - require:
+      - pkg: pkgs
+      - git: git://github.com/tpope/vim-pathogen.git
+
+
 
 git://github.com/terryma/vim-multiple-cursors.git:
   git.latest:
